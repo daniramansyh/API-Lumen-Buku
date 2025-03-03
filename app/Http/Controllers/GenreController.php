@@ -33,7 +33,7 @@ class GenreController extends Controller
         try {
             $genre = new Genre();
             $genre->id = Uuid::uuid4()->toString();
-            $genre = $this->fill($genre, $this->request->only('name', ));
+            $genre = $this->fill($genre, $this->request->only('name',));
             $genre->save();
             return $this->respondResource($genre);
         } catch (\Exception $e) {
@@ -45,7 +45,7 @@ class GenreController extends Controller
     {
         try {
             $genre = Genre::findOrFail($id);
-            $genre = $this->fill($genre, $this->request->only('name', ));
+            $genre = $this->fill($genre, $this->request->only('name',));
             $genre->save();
             return $this->respondResource($genre);
         } catch (\Exception $e) {

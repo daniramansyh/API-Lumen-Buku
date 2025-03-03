@@ -34,11 +34,11 @@ class PublisherController extends Controller
             $publisher = new Publisher();
             $publisher->id = Uuid::uuid4()->toString();
             $publisher = $this->fill($publisher, $this->request->only(
-            'name',
-            'founded_year',
-            'founder',
-            'headquarters',
-            'website',
+                'name',
+                'founded_year',
+                'founder',
+                'headquarters',
+                'website',
             ));
             $publisher->save();
             return $this->respondResource($publisher);
@@ -52,11 +52,11 @@ class PublisherController extends Controller
         try {
             $publisher = Publisher::findOrFail($id);
             $publisher = $this->fill($publisher, $this->request->only(
-            'name',
-            'founded_year',
-            'founder',
-            'headquarters',
-            'website',
+                'name',
+                'founded_year',
+                'founder',
+                'headquarters',
+                'website',
             ));
             $publisher->save();
             return $this->respondResource($publisher);

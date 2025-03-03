@@ -20,6 +20,7 @@ class Book extends JsonResource
             "language" => $this->language,
             "edition" => $this->edition,
             "synopsis" => $this->synopsis,
+            "status" => $this->status,
             "deleted_at" => $this->deleted_at,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at

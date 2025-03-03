@@ -34,13 +34,13 @@ class AuthorController extends Controller
             $author = new Author();
             $author->id = Uuid::uuid4()->toString();
             $author = $this->fill($author, $this->request->only(
-            'name',
-            'region',
-            'birth_date',
-            'death_date',
-            'education',
-            'awards',
-            'writing_style',
+                'name',
+                'region',
+                'birth_date',
+                'death_date',
+                'education',
+                'awards',
+                'writing_style',
             ));
             $author->save();
             return $this->respondResource($author);
@@ -54,13 +54,13 @@ class AuthorController extends Controller
         try {
             $author = Author::findOrFail($id);
             $author = $this->fill($author, $this->request->only(
-            'name',
-            'region',
-            'birth_date',
-            'death_date',
-            'education',
-            'awards',
-            'writing_style',
+                'name',
+                'region',
+                'birth_date',
+                'death_date',
+                'education',
+                'awards',
+                'writing_style',
             ));
             $author->save();
             return $this->respondResource($author);

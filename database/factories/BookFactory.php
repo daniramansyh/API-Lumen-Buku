@@ -24,6 +24,7 @@ class BookFactory extends Factory
             'language' => $this->faker->languageCode,
             'edition' => $this->faker->word,
             'synopsis' => $this->faker->text,
+            'status' => $this->faker->randomElement([Book::AVAILABLE, Book::NOT_AVAILABLE]),
         ];
     }
 }

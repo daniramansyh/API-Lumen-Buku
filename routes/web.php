@@ -32,24 +32,21 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->patch('/{id}', 'AuthorController@update');
         $router->delete('/{id}', 'AuthorController@delete');
     });
-    $router->group(['prefix'=> 'publishers'], function () use ($router)
-    {
+    $router->group(['prefix' => 'publishers'], function () use ($router) {
         $router->get('/', 'PublisherController@index');
         $router->post('/', 'PublisherController@create');
         $router->get('/{id}', 'PublisherController@detail');
         $router->patch('/{id}', 'PublisherController@update');
         $router->delete('/{id}', 'PublisherController@delete');
     });
-    $router->group(['prefix'=> 'genres'], function () use ($router)
-    {
+    $router->group(['prefix' => 'genres'], function () use ($router) {
         $router->get('/', 'GenreController@index');
         $router->post('/', 'GenreController@create');
         $router->get('/{id}', 'GenreController@detail');
         $router->patch('/{id}', 'GenreController@update');
         $router->delete('/{id}', 'GenreController@delete');
     });
-    $router->group(['prefix'=> 'books'], function () use ($router)
-    {
+    $router->group(['prefix' => 'books'], function () use ($router) {
         $router->get('/', 'BookController@index');
         $router->post('/', 'BookController@create');
         $router->get('/trash', 'BookController@getTrash');
@@ -58,5 +55,13 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->delete('/{id}', 'BookController@delete');
         $router->get('/restore/{id}', 'BookController@restore');
         $router->delete('/delete/{id}', 'BookController@forceDelete');
+    });
+    $router->group(['prefix' => 'transactions'], function () use ($router) {
+        $router->get('/', 'TransactionController@index');
+        $router->post('/', 'TransactionController@create');
+        $router->post('/return', 'TransactionController@returnBook');
+        $router->get('/{id}', 'TransactionController@detail');
+        $router->patch('/{id}', 'TransactionController@update');
+        $router->delete('/{id}', 'TransactionController@delete');
     });
 });

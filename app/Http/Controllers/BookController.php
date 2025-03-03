@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Ramsey\Uuid\Uuid;
 
@@ -44,6 +43,7 @@ class BookController extends Controller
                 "language",
                 "edition",
                 "synopsis",
+                "status",
             ));
 
             return $this->respondResource($book);
@@ -68,6 +68,7 @@ class BookController extends Controller
                 "language",
                 "edition",
                 "synopsis",
+                "status",
             ));
             return $this->respondResource($book);
         } catch (\Exception $e) {
@@ -135,6 +136,7 @@ class BookController extends Controller
             'language' => 'required|string',
             'edition' => 'nullable|string',
             'synopsis' => 'nullable|string',
+            'status' => 'required|string',
         ])->validate();
 
         $book->save();
